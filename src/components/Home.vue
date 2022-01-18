@@ -45,7 +45,30 @@
           <!-- main content -->
           <div class="w-full h-full bg-yellow-100 relative">
               <!-- header -->
-              <div class="w-full sticky top-o bg-red-400 p-2"></div>
+              <div class="w-full sticky top-0 bg-red-400 py-4 px-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <button class="rounded-full bg-black w-8 h-8 mr-3 text-white">
+                            <i class="material-icons text-3xl">keyboard_arrow_left</i>
+                        </button>
+                        <button class="rounded-full bg-black w-8 h-8 text-white">
+                            <i class="material-icons text-3xl">keyboard_arrow_right</i>
+                        </button>
+                    </div>
+
+                    <!-- dropdown -->
+                    <div class="relative">
+                        <button @click="Dropdown = true" class="focus:outline-none bg-light rounded-full py-1 px-2 flex items-center">
+                            <img src="04.jpeg" class="rounded-full h-6 w-6 mr-2" alt="" />
+                            <p class="text-white font-semibold text-xs mr-3">Papy Sli</p>
+                            <i v-if="Dropdown === false" class="material-icons text-white">arrow_drop_down</i>
+                            <i v-if="Dropdown === true" class="material-icons text-white">arrow_drop_up</i>
+                        </button>
+                        <div v-if="Dropdown === true" class="absolute bg-light w-full rounded mt-1">
+                            <button @click="Dropdown = false" class="focus:outline-none w-full text-sm py-2 text-lightest hover:text-white border-b border-lightest opacity-75 hover:opacity-100">Acount</button>
+                            <button @click="Dropdown = false" class="focus:outline-none w-full text-sm py-2 text-lightest hover:text-white border-b border-lightest opacity-75 hover:opacity-100">Logout</button>
+                        </div>
+                    </div>
+              </div>
           </div>
       </div>
       <!-- play bar -->
@@ -74,6 +97,7 @@ export default {
             {name: 'Someone i loved'},
             {name: 'Tomorrow'},
         ],
+        Dropdown: false
     };
   },
   methods:{
