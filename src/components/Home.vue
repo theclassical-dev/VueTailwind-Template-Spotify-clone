@@ -114,19 +114,39 @@
           </div>
       </div>
       <!-- play bar -->
-      <div class="w-full flex items-center justify-between px-3 bg-light" style="height: 12vh; ">
-          <div class="flex items-center">
+      <div class="w-full flex items-center justify-between px-3 bg-light border-t border-dark" style="height: 12vh; ">
+          <div class="flex items-center w-1/4">
               <div>
-                <h1 class="text-sm text-white tracking-wide">Bady Riddem - Five</h1>
-                <h2 class="text-xm text-lightest tracking-wide">Baby's Riddim</h2>
+                <h1 class="text-sm text-white tracking-wide">Olamide_ft_Bella_Shmurda_-_Triumphant</h1>
+                <h2 class="text-xm text-lightest tracking-wide">Triumphant</h2>
               </div>
               <i class="material-icons text-xl text-green mx-4"> favorite</i>
-              <i class="material-icons text-xl text-lightest">picture_in_picture</i>
+              <i class="material-icons text-xl text-lightest hover:text-white">picture_in_picture</i>
           </div>
-          <div class="flex items-center">
-              <i class="material-icons text-lightest">playlist_play</i>
-              <i class="material-icons text-xl text-lightest mx-3">important_devices</i>
-              <i class="material-icons text-xl text-lightest">volume_up</i>
+          <div class="flex flex-col justify-center w-2/4 items-center">
+              <div class="flex items-center">
+					<button class="text-lightest hover:text-white mx-5"><i class="material-icons text-lg">shuffle</i></button>
+					<button class="text-lightest hover:text-white"><i class="material-icons text-lg">skip_previous</i></button>
+					<button @click.prevent="playSong('Olamide_ft_Bella_Shmurda_-_Triumphant.mp3'), pause = true" class="rounded-full h-8 w-8 flex items-center mx-5 justify-center border-lightest border text-lightest hover:text-white">
+					  	<i v-if="pause === false" class="material-icons">play_circle</i>
+					  	<i v-if="pause === true" class="material-icons">pause</i>
+					</button>
+					<button class="text-lightest hover:text-white"><i class="material-icons text-lg">skip_next</i></button>
+					<button class="text-lightest hover:text-white mx-5"><i class="material-icons text-lg">repeat</i></button>
+              </div>
+              <div class="w-3/4 flex items-center justify-center">
+			  		<p class="text-xs text-lightest mr-1  mt-4">1:01</p>
+					<div class="w-full h-1 bg-dark rounded-full mt-4 flex items-center">
+						<div class="h-1 rounded-full bg-green" style="width:18%"></div>
+						<div class="h-3 w-3 bg-white rounded-full -ml-1 shadow"></div>
+					</div>
+			  		<p class="text-xs text-lightest ml-1 mt-4">3:15</p>
+              </div>
+          </div>
+          <div class="flex items-center w-1/4 justify-end">
+              <i class="material-icons text-lightest hover:text-white">playlist_play</i>
+              <i class="material-icons text-xl text-lightest mx-3 hover:text-white">important_devices</i>
+              <i class="material-icons text-xl text-lightest hover:text-white">volume_up</i>
               <div class="w-20 ml-1 bg-lightest rounded-full h-1"></div>
           </div>
       </div>
@@ -171,10 +191,16 @@ export default {
             {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
             {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
         ],
+		pause: false
     };
   },
   methods:{
-
+	  playSong(song) {
+		  if(song){
+			  var audio = new Audio(song);
+			  audio.play();
+		  }
+	  }
   }
 }
 </script>
