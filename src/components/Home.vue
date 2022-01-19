@@ -43,7 +43,7 @@
               </div>
           </div>
           <!-- main content -->
-          <div class="w-full h-full bg-yellow-100 relative">
+          <div class="w-full h-full bg-yellow-100 overflow-y-scroll relative">
               <!-- header -->
               <div class="w-full sticky top-0 bg-red-400 py-4 px-6 flex items-center justify-between">
                     <div class="flex items-center">
@@ -69,6 +69,48 @@
                         </div>
                     </div>
               </div>
+              <!-- cards -->
+                <div class="px-6 py-3">
+                    <div class="flex items-center justify-between">
+                        <h1 class="pl-2 text-2xl font-semibold text-white tracking-wider hover:underline">Recently Played</h1>
+                        <h2 class="pr-8 pt-4 text-xs font-semibold text-lightest tracking-wider uppercase hover:underline mb-3">See All</h2>
+                    </div>
+                    <div class="w-full flex flex-wrap">
+                        <div :key="recent" v-for="recent in recents" class="p-2 w-48 flex flex-1 relative">
+                            <div class="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                                <div class="bg-green rounded-full w-10 h-10 flex items-center justify-center">
+                                    <i class="material-icons text-white text-2xl">play_arrow</i>
+                                </div>
+                            </div>
+                            <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                                <img :src="`${ recent.src}`" alt="" class="h-auto w-full shadow mb-2">
+                                <h1 class="text-sm font-semibold text-white tracking wide">{{ recent.title }}</h1>
+                                <h2 class="text-xs text-lightest tracking-wide pb-5">{{ recent.artist }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- second card -->
+                <div class="px-6 py-3">
+                    <div class="pl-2">
+                        <h1 class="text-2xl font-semibold text-white tracking-wider hover:underline">Made for Clasic Sli</h1>
+                        <h2 class="text-sm text-lightest mb-2">Get better recommendations the more you listen.</h2>
+                    </div>
+                    <div class="w-full flex flex-wrap">
+                        <div :key="custom" v-for="custom in customs" class="p-2 w-48 flex flex-1 relative">
+                            <div class="absolute w-full h-full flex items-end justify-end p-8 opacity-0 hover:opacity-100">
+                                <div class="bg-green rounded-full w-10 h-10 flex items-center justify-center">
+                                    <i class="material-icons text-white text-2xl">play_arrow</i>
+                                </div>
+                            </div>
+                            <div class="bg-light w-full h-auto p-5 rounded-lg shadow-md">
+                                <img :src="`${ custom.src}`" alt="" class="h-auto w-full shadow mb-2">
+                                <h1 class="text-sm font-semibold text-white tracking wide">{{ custom.title }}</h1>
+                                <h2 class="text-xs text-lightest tracking-wide pb-5">{{ custom.artist }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
           </div>
       </div>
       <!-- play bar -->
@@ -97,7 +139,23 @@ export default {
             {name: 'Someone i loved'},
             {name: 'Tomorrow'},
         ],
-        Dropdown: false
+        Dropdown: false,
+        recents: [
+            {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
+            {src: '5.jpg', title: 'Made in Lagos', artist: 'Wizkid'},
+            {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
+            {src: '04.jpeg', title: 'Twince as Tall', artist: 'Burna Boy'},
+            {src: '5.jpg', title: 'Smile', artist: 'Wizkid'},
+            {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
+        ],
+        customs: [
+            {src: '04.jpeg', title: 'Mix Capi Dem', artist: 'Olamide'},
+            {src: '5.jpg', title: 'Made in Lagos', artist: 'Wizkid'},
+            {src: '07.png', title: 'Capi Dem', artist: 'Olamide'},
+            {src: '09.png', title: 'Twince as Tall', artist: 'Burna Boy'},
+            {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
+            {src: '04.jpeg', title: 'Capi Dem', artist: 'Olamide'},
+        ],
     };
   },
   methods:{
