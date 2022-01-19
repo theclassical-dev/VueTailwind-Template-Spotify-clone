@@ -114,7 +114,22 @@
           </div>
       </div>
       <!-- play bar -->
-      <div class="w-full bg-light" style="height: 12vh; "></div>
+      <div class="w-full flex items-center justify-between px-3 bg-light" style="height: 12vh; ">
+          <div class="flex items-center">
+              <div>
+                <h1 class="text-sm text-white tracking-wide">Bady Riddem - Five</h1>
+                <h2 class="text-xm text-lightest tracking-wide">Baby's Riddim</h2>
+              </div>
+              <i class="material-icons text-xl text-green mx-4"> favorite</i>
+              <i class="material-icons text-xl text-lightest">picture_in_picture</i>
+          </div>
+          <div class="flex items-center">
+              <i class="material-icons text-lightest">playlist_play</i>
+              <i class="material-icons text-xl text-lightest mx-3">important_devices</i>
+              <i class="material-icons text-xl text-lightest">volume_up</i>
+              <div class="w-20 ml-1 bg-lightest rounded-full h-1"></div>
+          </div>
+      </div>
     </div>
 </template>
 
